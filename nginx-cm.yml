@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-conf
+  namespace: nginx-argocd
 data:
   nginx.conf: |+
     worker_processes  5;
