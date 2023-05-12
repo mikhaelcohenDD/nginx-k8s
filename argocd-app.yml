@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-argocd-yaml
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+      automated:
+        prune: false 
+        selfHeal: true 
+        allowEmpty: false 
+  source:
+    repoURL: https://github.com/mikhaelcohenDD/nginx-k8s
+    targetRevision: HEAD
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
